@@ -4,7 +4,11 @@
 */
 
 function isPalindrome(str) {
-  return true;
-}
-
+   let punctuation = /[\.,?!]/g;
+   str = str.replace(punctuation, "");
+  if(str.toLowerCase().replace(/[^a-zA-Z]+/g, '') == str.split("").reverse().join("").toLowerCase().replace(/[^a-zA-Z]+/g, '')){
+      return true
+  }
+  return false;
+  }
 module.exports = isPalindrome;
