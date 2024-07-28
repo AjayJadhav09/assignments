@@ -22,5 +22,8 @@ app.post('/user', function(req, res) {
 app.get('/errorCount', function(req, res) {
   res.status(200).json({ errorCount });
 });
-
+app.use((err, req, res, next)=>{
+  errorCount++;
+  return res.status(404).send({msg: "Someting up with server"});
+})
 module.exports = app;
